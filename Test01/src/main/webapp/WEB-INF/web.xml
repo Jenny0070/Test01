@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <display-name>Archetype Created Web Application</display-name>
+  <!--配置过滤器-->
+  <filter>
+    <filter-name>testFilter</filter-name>
+    <filter-class>com.bluemsun.controller.testFilter</filter-class>
+  </filter>
+  <!--映射过滤器-->
+  <filter-mapping>
+    <filter-name>testFilter</filter-name>
+    <!--“/*”表示拦截所有的请求 -->
+    <url-pattern>/success.jsp</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <!--//用户-->
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MainServlet</url-pattern>
+  </servlet-mapping>
+<!--//新闻-->
+  <servlet>
+    <servlet-name>NewsServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.NewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsServlet</servlet-name>
+    <url-pattern>/NewsServlet</url-pattern>
+  </servlet-mapping>
+<!--//优秀作品-->
+  <servlet>
+    <servlet-name>DisplayServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.DisplayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayServlet</servlet-name>
+    <url-pattern>/DisplayServlet</url-pattern>
+  </servlet-mapping>
+<!--//留言板-->
+  <servlet>
+    <servlet-name>CommentBoardServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.CommentBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentBoardServlet</servlet-name>
+    <url-pattern>/CommentBoardServlet</url-pattern>
+  </servlet-mapping>
+<!--//博客-->
+  <servlet>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-class>com.bluemsun.controller.BlogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlogServlet</servlet-name>
+    <url-pattern>/BlogServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
