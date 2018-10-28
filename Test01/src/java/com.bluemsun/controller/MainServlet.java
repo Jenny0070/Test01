@@ -56,9 +56,17 @@ public class MainServlet extends HttpServlet {
 			case "pagination":
 				pagination(req,resp);
 				break;
+			case "newMember":
+				newMemberApplication(req,resp);
+				break;
 		}
 		
 	}
+	//新成员申请
+	private void newMemberApplication(HttpServletRequest req, HttpServletResponse resp) {
+	
+	}
+	
 	//分页
 	private void pagination(HttpServletRequest req, HttpServletResponse resp) {
 		int pageNum=Integer.parseInt(req.getParameter("pageNum"));

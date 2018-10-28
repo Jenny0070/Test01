@@ -6,7 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39dc0da4-a423-463b-a191-1d5946cd9ffb" name="Default Changelist" comment="" />
+    <list default="true" id="39dc0da4-a423-463b-a191-1d5946cd9ffb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/java/com.bluemsun/entity/newMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/controller/SearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/controller/SearchServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/dao/SearchDao/SearchDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/dao/SearchDao/SearchDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/dao/SearchDao/SearchDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/dao/SearchDao/SearchDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/service/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Test01/WEB-INF/classes/com/bluemsun/service/SearchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Test01/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Test01/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bluemsun/controller/SearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bluemsun/controller/SearchServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bluemsun/dao/SearchDao/SearchDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bluemsun/dao/SearchDao/SearchDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bluemsun/dao/SearchDao/SearchDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bluemsun/dao/SearchDao/SearchDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bluemsun/service/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bluemsun/service/SearchService.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,34 +101,35 @@
     <session id="-803339971">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
+          <entry key="java" value="10" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="10" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="198" />
+          <entry key="java" value="378" />
           <entry key="xml" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="198" />
+          <entry key="JAVA" value="378" />
           <entry key="XML" value="18" />
         </counts>
       </usages-collector>
@@ -128,7 +142,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/dao/SearchDao/SearchDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
+            <state relative-caret-position="1072">
               <caret line="75" column="69" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
             </state>
           </provider>
@@ -137,17 +151,93 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/service/SearchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="528">
               <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/controller/SearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+            <state relative-caret-position="1215">
+              <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="66" column="4" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/entity/newMember.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding>
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+                <element signature="e#337#338#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#389#390#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+                <element signature="e#457#458#0" expanded="true" />
+                <element signature="e#488#489#0" expanded="true" />
+                <element signature="e#519#520#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#608#609#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+                <element signature="e#836#837#0" expanded="true" />
+                <element signature="e#861#862#0" expanded="true" />
+                <element signature="e#878#879#0" expanded="true" />
+                <element signature="e#911#912#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#981#982#0" expanded="true" />
+                <element signature="e#1021#1022#0" expanded="true" />
+                <element signature="e#1046#1047#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
+                <element signature="e#1089#1090#0" expanded="true" />
+                <element signature="e#1123#1124#0" expanded="true" />
+                <element signature="e#1142#1143#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1191#1192#0" expanded="true" />
+                <element signature="e#1231#1232#0" expanded="true" />
+                <element signature="e#1256#1257#0" expanded="true" />
+                <element signature="e#1289#1290#0" expanded="true" />
+                <element signature="e#1311#1312#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+                <element signature="e#1388#1389#0" expanded="true" />
+                <element signature="e#1420#1421#0" expanded="true" />
+                <element signature="e#1441#1442#0" expanded="true" />
+                <element signature="e#1485#1486#0" expanded="true" />
+                <element signature="e#1514#1515#0" expanded="true" />
+                <element signature="e#1542#1543#0" expanded="true" />
+                <element signature="e#1559#1560#0" expanded="true" />
+                <element signature="e#1595#1596#0" expanded="true" />
+                <element signature="e#1616#1617#0" expanded="true" />
+                <element signature="e#1656#1657#0" expanded="true" />
+                <element signature="e#1685#1686#0" expanded="true" />
+                <element signature="e#1745#1746#0" expanded="true" />
+                <element signature="e#1790#1791#0" expanded="true" />
+                <element signature="e#1822#1823#0" expanded="true" />
+                <element signature="e#1843#1844#0" expanded="true" />
+                <element signature="e#1887#1888#0" expanded="true" />
+                <element signature="e#1916#1917#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,6 +253,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -185,7 +278,6 @@
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/entity/User.java" />
         <option value="$PROJECT_DIR$/src/test/com/bluemsun/service/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/entity/News.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/dao/NewsDao/NewsDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/dao/NewsDao/NewsDao.java" />
@@ -214,6 +306,8 @@
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/dao/SearchDao/SearchDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/service/SearchService.java" />
         <option value="$PROJECT_DIR$/src/java/com.bluemsun/controller/SearchServlet.java" />
+        <option value="$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java" />
+        <option value="$PROJECT_DIR$/src/java/com.bluemsun/entity/newMember.java" />
       </list>
     </option>
   </component>
@@ -260,13 +354,14 @@
     <option name="width" value="1364" />
     <option name="height" value="735" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,6 +394,14 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com.bluemsun" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Test01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Test01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.bluemsun" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Test01" type="b2602c69:ProjectViewProjectNode" />
@@ -339,12 +442,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540644494480" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540715467539" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -631,7 +736,8 @@
       <workItem from="1540464053906" duration="1189000" />
       <workItem from="1540638975967" duration="35000" />
       <workItem from="1540639047315" duration="585000" />
-      <workItem from="1540639702185" duration="4117000" />
+      <workItem from="1540639702185" duration="4577000" />
+      <workItem from="1540713032284" duration="1061000" />
     </task>
     <servers />
   </component>
@@ -668,11 +774,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70049000" />
+    <option name="totallyTimeSpent" value="71570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23938507" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -684,7 +789,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32730263" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47368422" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47446457" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3993174" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -723,13 +828,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java</url>
-          <line>207</line>
+          <line>215</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java</url>
-          <line>212</line>
+          <line>220</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -747,7 +852,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java</url>
-          <line>63</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -769,9 +874,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/entity/Page.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -947,13 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2400">
-          <caret line="168" column="9" selection-start-line="161" selection-start-column="8" selection-end-line="168" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/service/NewsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -1066,9 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1112,22 +1204,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/dao/SearchDao/SearchDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
+        <state relative-caret-position="1072">
           <caret line="75" column="69" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/service/SearchService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="528">
           <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/controller/SearchServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        <state relative-caret-position="1215">
+          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/controller/MainServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="66" column="4" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com.bluemsun/entity/newMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1388#1389#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1441#1442#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#1595#1596#0" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1656#1657#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+            <element signature="e#1822#1823#0" expanded="true" />
+            <element signature="e#1843#1844#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
