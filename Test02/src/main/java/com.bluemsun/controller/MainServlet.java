@@ -74,9 +74,13 @@ public class MainServlet extends HttpServlet {
 			case "newMemberQuery":
 				newMemberQuery(req,resp);
 				break;
-			case "addFullMember":
-				addFullMember(req,resp);
+			case "newMemberQuerySpecial":
+				newMemberQuerySpecial(req,resp);
 				break;
+			case  "checkNewMember":
+				checkNewMember(req,resp);
+				break;
+			
 			
 			default:
 				resp.getWriter().write("无方法正在执行");
@@ -84,6 +88,7 @@ public class MainServlet extends HttpServlet {
 		}
 		
 	}
+	
 	
 	
 	//申请表的开关
@@ -148,19 +153,24 @@ public class MainServlet extends HttpServlet {
 	//新成员申请
 	private void newMemberApplication(HttpServletRequest req, HttpServletResponse resp) {
 		NewMember newMember=new NewMember();
+		
+		newMember.setStudentId(req.getParameter("studentId"));
 		newMember.setUsername(req.getParameter("username"));
-		newMember.setAge(Integer.parseInt(req.getParameter("age")));
-		newMember.setAim(req.getParameter("aim"));
-		newMember.setEmail(req.getParameter("email"));
 		newMember.setGender(req.getParameter("gender"));
-		newMember.setGrade(Integer.parseInt(req.getParameter("grade")));
-		newMember.setMajor(req.getParameter("major"));
 		newMember.setNation(req.getParameter("nation"));
-		newMember.setOpinion(req.getParameter("opinion"));
+		newMember.setGrade(Integer.parseInt(req.getParameter("grade")));
+		newMember.setBirth(req.getParameter("birth"));
+		newMember.setMajor(req.getParameter("major"));
+		newMember.setAcademy(req.getParameter("academy"));
+		newMember.setMyQQ(req.getParameter("myQQ"));
+		newMember.setEmail(req.getParameter("email"));
 		newMember.setPhoneNum(req.getParameter("phoneNum"));
 		newMember.setPicture(req.getParameter("picture"));
-		newMember.setMyQQ(req.getParameter("myQQ"));
+		newMember.setAim(req.getParameter("aim"));
+		newMember.setOpinion(req.getParameter("opinion"));
 		newMember.setSelfInstruction(req.getParameter("selfInstruction"));
+		newMember.setIsWork(req.getParameter("isWork"));
+		newMember.setSkills(req.getParameter("skills"));
 		
 		UserService userService=new UserService();
 		int flag=userService.newMember(newMember);
@@ -185,9 +195,9 @@ public class MainServlet extends HttpServlet {
 	//新用户删除
 	
 	private void newMemberDelete(HttpServletRequest req, HttpServletResponse resp) {
-		String username=req.getParameter("username");
+		String studentId=req.getParameter("studentId");
 		UserService userService=new UserService();
-		int flag=userService.deleteNewMember(username);
+		int flag=userService.deleteNewMember(studentId);
 		JSONObject jsonObject=new JSONObject();
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
@@ -223,18 +233,31 @@ public class MainServlet extends HttpServlet {
 		
 	}
 	
+	//条件查看
 	
-	//使之成为工作室成员
-	
-	private void addFullMember(HttpServletRequest req, HttpServletResponse resp) {
-		NewMember newMember=new NewMember();
-		newMember.setUsername(req.getParameter("username"));
-		newMember.setEmail(req.getParameter("email"));
-		newMember.setGender(req.getParameter("gender"));
-		newMember.setPhoneNum(req.getParameter("phoneNum"));
-		int flag=0;
+	private void newMemberQuerySpecial(HttpServletRequest req, HttpServletResponse resp) {
+		String special=req.getParameter("special");
+		List<NewMember> list=new ArrayList<>();
 		UserService userService=new UserService();
-		flag = userService.addFullMember(newMember);
+		list=userService.queryNewMemberSpecial(special);
+		JSONArray jsonArray=JSONArray.fromObject(list);
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		try {
+			resp.getWriter().write(String.valueOf(jsonArray));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//报名表审核
+	private void checkNewMember(HttpServletRequest req, HttpServletResponse resp) {
+		String check=req.getParameter("check");
+		String studentId=req.getParameter("studentId");
+		UserService userService=new UserService();
+		int flag=userService.newMemberCheck(studentId,check);
 		JSONObject jsonObject=new JSONObject();
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
@@ -252,6 +275,8 @@ public class MainServlet extends HttpServlet {
 		
 	}
 	
+	
+	
 	//分页
 	private void pagination(HttpServletRequest req, HttpServletResponse resp) {
 		int pageNum= Integer.parseInt(req.getParameter("pageNum"));
@@ -263,18 +288,23 @@ public class MainServlet extends HttpServlet {
 	private void update(HttpServletRequest req, HttpServletResponse resp) {
 		//获得id
 		UserService userService=new UserService();
-		int id=userService.findIdByUsername(req.getParameter("username"));
+		int id=userService.findIdByUsername(req.getParameter("studentId"));
 		int flag=0;
 		User user=new User();
 		user.setUsername(req.getParameter("username"));
 		user.setPassword(req.getParameter("password"));
+		user.setBirth(req.getParameter("birth"));
 		user.setEmail(req.getParameter("email"));
 		user.setGender(req.getParameter("gender"));
-		user.setIdentity(req.getParameter("identity"));
 		user.setPhoneNum(req.getParameter("phoneNum"));
 		user.setNation(req.getParameter("nation"));
 		user.setSignature(req.getParameter("signature"));
 		user.setStudentId(req.getParameter("studentId"));
+		user.setMajor(req.getParameter("major"));
+		user.setAcademy(req.getParameter("academy"));
+		user.setMyQQ(req.getParameter("myQQ"));
+		user.setPicture(req.getParameter("picture"));
+		user.setGrade(Integer.parseInt(req.getParameter("grade")));
 		user.setId(id);
 		
 		flag=userService.updateById(user);
@@ -306,7 +336,7 @@ public class MainServlet extends HttpServlet {
 	private void delete(HttpServletRequest req, HttpServletResponse resp) {
 		int flag=0;
 		UserService userService=new UserService();
-		int id=userService.findIdByUsername(req.getParameter("username"));
+		int id=userService.findIdByUsername(req.getParameter("studentId"));
 		flag=userService.deleteById(id);
 		if (flag>0){
 			JSONObject jsonObject=new JSONObject();
@@ -383,14 +413,18 @@ public class MainServlet extends HttpServlet {
 		User user=new User();
 		user.setUsername(req.getParameter("username"));
 		user.setPassword(req.getParameter("password"));
+		user.setBirth(req.getParameter("birth"));
 		user.setEmail(req.getParameter("email"));
 		user.setGender(req.getParameter("gender"));
-		user.setIdentity(req.getParameter("identity"));
 		user.setPhoneNum(req.getParameter("phoneNum"));
 		user.setNation(req.getParameter("nation"));
 		user.setSignature(req.getParameter("signature"));
 		user.setStudentId(req.getParameter("studentId"));
-		
+		user.setMajor(req.getParameter("major"));
+		user.setAcademy(req.getParameter("academy"));
+		user.setMyQQ(req.getParameter("myQQ"));
+		user.setPicture(req.getParameter("picture"));
+		user.setGrade(Integer.parseInt(req.getParameter("grade")));
 		UserService userService=new UserService();
 		int flag=userService.addUser(user);
 		if (flag>0){

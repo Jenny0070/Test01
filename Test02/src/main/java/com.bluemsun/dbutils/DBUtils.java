@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 
 public class DBUtils {
+	
 	private static String URL="jdbc:mysql://localhost:3306/10_10bluenet?useSSL=true&serverTimezone=GMT";
 	private static String USERNAME="root";
 	private static String PASSWORD="123456";

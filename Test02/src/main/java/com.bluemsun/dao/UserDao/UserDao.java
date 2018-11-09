@@ -13,27 +13,38 @@ public interface UserDao{
 	//新成员申请表
 	
 	 int newMember(NewMember newMember);
-	
-	//报名表管理
-	//报名表删除，即审核不通过
-	
-	 int deleteNewMember (String username);
-	
+	 
 	//报名表查看
 	
-	 List<NewMember> queryNewMember();
-	 
-	 int addFullMember(NewMember newMember);
+	
+	
+	List<NewMember> queryNewMember();
+	
+	List<NewMember> queryNewMemberSpecial(String special);
+	
+	int deleteNewMember(String studentId);
+	
+	//审核报名表
+	int checkNewMember(String check, String studentId);
+	
+	//	报名表状态
+	
+	List<NewMember> queryApplicationState();
+	
+	int  updateApplicationState(String state);
+	
+	
+	
 	
 	// 添加方法_注册
 	
 	int add(User user) throws SQLException;
 	
-	// 更新方法
-	
-	
-	
 	//修改
+	
+	
+	
+	
 	int findIdByUsername(String username);
 	
 	 int update(User user) throws SQLException;
@@ -57,11 +68,8 @@ public interface UserDao{
 	 long personCount() throws SQLException;
 	
 	
-	int  updateApplicationState(String state);
 	
-	//	报名表状态查看
 	
-	List<NewMember> queryApplicationState();
 }
 
 

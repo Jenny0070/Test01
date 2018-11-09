@@ -2,57 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fca2213-dd7e-47ae-a84e-8b9eb956905a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test02.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/Filter/FilterDemo01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/Filter/FilterDemo02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/Filter/InformFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/BlogServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/CommentBoardServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/DisplayServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/InformServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/NewsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/SearchServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/testFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/BlogDao/BlogDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/BlogDao/BlogDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/CommentBoardDao/CommentBoardDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/CommentBoardDao/CommentBoardDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/DisplayDao/DisplayDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/DisplayDao/DisplayDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/InformDao/InformDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/InformDao/InformDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/NewsDao/NewsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/NewsDao/NewsDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/SearchDao/SearchDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/SearchDao/SearchDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtilsImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Blog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/CommentBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Display.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Inform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/News.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/BlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/CommentBoardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/DisplayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/InformService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/NewsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/SearchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Test01/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Test01/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test01/src/java/com.bluemsun/JSON/JsonReader.java" beforeDir="false" />
@@ -141,6 +90,14 @@
       <change beforePath="$PROJECT_DIR$/../Test01/target/classes/com/bluemsun/service/NewsService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test01/target/classes/com/bluemsun/service/SearchService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test01/target/classes/com/bluemsun/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -160,88 +117,74 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="164" />
-          <entry key="xml" value="1" />
+          <entry key="java" value="1320" />
+          <entry key="txt" value="12" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="164" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="1320" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="9" />
+          <entry key="java" value="16" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="9" />
+          <entry key="JAVA" value="16" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/CommentBoard.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="84" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="84" selection-end-column="5" />
-              <folding>
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#941#942#0" expanded="true" />
-                <element signature="e#966#967#0" expanded="true" />
-                <element signature="e#992#993#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1045#1046#0" expanded="true" />
-                <element signature="e#1068#1069#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#1112#1113#0" expanded="true" />
-                <element signature="e#1147#1148#0" expanded="true" />
-                <element signature="e#1170#1171#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-                <element signature="e#1217#1218#0" expanded="true" />
-                <element signature="e#1255#1256#0" expanded="true" />
-                <element signature="e#1278#1279#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Blog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="-1369">
+              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Comment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+            <state relative-caret-position="226">
+              <caret line="306" column="30" selection-start-line="306" selection-start-column="30" selection-end-line="306" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-93">
+              <caret line="91" column="74" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
               <folding>
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#959#960#0" expanded="true" />
-                <element signature="e#985#986#0" expanded="true" />
-                <element signature="e#1003#1004#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-                <element signature="e#1061#1062#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1105#1106#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1163#1164#0" expanded="true" />
-                <element signature="e#1192#1193#0" expanded="true" />
-                <element signature="e#1210#1211#0" expanded="true" />
-                <element signature="e#1248#1249#0" expanded="true" />
-                <element signature="e#1271#1272#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#newMember#0;class#UserDaoImpl#0" />
+                <element signature="method#deleteNewMember#0;class#UserDaoImpl#0" />
+                <element signature="method#queryNewMember#0;class#UserDaoImpl#0" />
+                <element signature="method#queryNewMemberSpecial#0;class#UserDaoImpl#0" />
               </folding>
             </state>
           </provider>
@@ -262,13 +205,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/News.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Display.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/CommentBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Comment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java" />
       </list>
     </option>
   </component>
@@ -288,14 +236,24 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Test02 Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Test02 Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
+    <option name="y" value="84" />
+    <option name="width" value="913" />
+    <option name="height" value="596" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -345,7 +303,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com.bluemsun" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -358,7 +316,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541733690361" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541738210493" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -427,12 +385,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541732362118</updated>
-      <workItem from="1541732363750" duration="1326000" />
+      <workItem from="1541732363750" duration="5842000" />
     </task>
+    <task id="LOCAL-00001" summary="mysqlModify">
+      <created>1541733752495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541733752495</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1326000" />
+    <option name="totallyTimeSpent" value="5842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -462,7 +428,7 @@
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" weight="0.4411303" />
+      <window_info anchor="right" id="Maven Projects" weight="0.4409985" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -476,16 +442,25 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mysqlModify" />
+    <option name="LAST_COMMIT_MESSAGE" value="mysqlModify" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/BlogDao/BlogDao.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/Display.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -520,13 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-697">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -633,6 +601,68 @@
             <element signature="e#1248#1249#0" expanded="true" />
             <element signature="e#1271#1272#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dbutils/DBUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/entity/NewMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/dao/UserDao/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-93">
+          <caret line="91" column="74" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#newMember#0;class#UserDaoImpl#0" />
+            <element signature="method#deleteNewMember#0;class#UserDaoImpl#0" />
+            <element signature="method#queryNewMember#0;class#UserDaoImpl#0" />
+            <element signature="method#queryNewMemberSpecial#0;class#UserDaoImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1369">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.bluemsun/controller/MainServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="306" column="30" selection-start-line="306" selection-start-column="30" selection-end-line="306" selection-end-column="30" />
         </state>
       </provider>
     </entry>

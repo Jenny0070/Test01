@@ -16,7 +16,7 @@ public class UserService {
 	 * @param newMember
 	 * @return
 	 */
-	//新用户注册
+	//报名表
 	
 	public int newMember(NewMember newMember){
 		UserDao userDao=new UserDaoImpl();
@@ -27,10 +27,10 @@ public class UserService {
 	
 	//新用户删除
 	
-	public int deleteNewMember(String username){
+	public int deleteNewMember(String studentId){
 		int flag;
 		UserDao userDao=new UserDaoImpl();
-		flag=userDao.deleteNewMember(username);
+		flag=userDao.deleteNewMember(studentId);
 		return flag;
 	}
 	
@@ -43,13 +43,20 @@ public class UserService {
 		return list;
 	}
 	
-	//使之成为正式成员
+	 public List<NewMember> queryNewMemberSpecial(String special){
+		 List<NewMember> list=new ArrayList<>();
+		 UserDao userDao=new UserDaoImpl();
+		 list=userDao.queryNewMemberSpecial(special);
+		 return list;
+	 }
+	 
+	 //审核报名表
 	
-	public int addFullMember(NewMember newMember){
-		int flag=0;
+	public int newMemberCheck(String studentId ,String check){
 		UserDao userDao=new UserDaoImpl();
-		flag=userDao.addFullMember(newMember);
+		int flag=userDao.checkNewMember(check,studentId);
 		return flag;
+		
 	}
 	
 	/**
@@ -114,9 +121,9 @@ public class UserService {
 	
 	//修改
 	
-	public int findIdByUsername(String username){
+	public int findIdByUsername(String studentId){
 		UserDao userDao=new UserDaoImpl();
-		int id=userDao.findIdByUsername(username);
+		int id=userDao.findIdByUsername(studentId);
 		return id;
 	}
 	

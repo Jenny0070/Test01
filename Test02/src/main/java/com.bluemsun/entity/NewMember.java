@@ -22,6 +22,15 @@ public class NewMember {
 	private String opinion;
 	private String isWork;
 	private String isOn;
+	private String state;
+	
+	public String getState() {
+		return state;
+	}
+	
+	public void setState(String state) {
+		this.state = state;
+	}
 	
 	public String getIsOn() {
 		return isOn;

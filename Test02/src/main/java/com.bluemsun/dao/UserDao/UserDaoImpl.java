@@ -6,7 +6,6 @@ import com.bluemsun.entity.User;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int newMember(NewMember newMember) {
 		int flag=0;
-		String sql="insert into newMemberApplication (username,gender,nation,grade,age,major,myQQ,email,phoneNum,picture,aim,selfInstruction,opinion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		Object[] params={newMember.getUsername(),newMember.getGender(),newMember.getNation(),newMember.getGrade(),newMember.getAge(),newMember.getMajor(),newMember.getMyQQ(),newMember.getEmail(),newMember.getPhoneNum(),newMember.getPicture(),newMember.getAim(),newMember.getSelfInstruction(),newMember.getOpinion()};
+		String sql="insert into newMemberApplication (studentId,username,gender,nation,grade,birth,major,academy,myQQ,email,phoneNum,picture,aim,skills,selfInstruction,opinion,isWork) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Object[] params={newMember.getStudentId(),newMember.getUsername(),newMember.getGender(),newMember.getNation(),newMember.getGrade(),newMember.getBirth(),newMember.getMajor(),newMember.getAcademy(),newMember.getMyQQ(),newMember.getEmail(),newMember.getPhoneNum(),newMember.getPicture(),newMember.getAim(),newMember.getSkills(),newMember.getSelfInstruction(),newMember.getOpinion(),newMember.getIsWork()};
 		try {
 			flag=runner.update(DBUtils.getConnection(),sql,params);
 		} catch (SQLException e) {
@@ -37,14 +36,15 @@ public class UserDaoImpl implements UserDao{
 		}
 		return flag;
 	}
-	//新成员审核不通过
+	
+	//报名表删除_通过学号
 	
 	@Override
-	public int deleteNewMember(String username) {
+	public int deleteNewMember(String studentId) {
 		int flag=0;
-		String sql="delete from newMemberApplication where username=?";
+		String sql="delete from newMemberApplication where studentId ";
 		try {
-			flag=runner.update(DBUtils.getConnection(),sql,username);
+			flag=runner.update(DBUtils.getConnection(),sql,studentId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -66,31 +66,49 @@ public class UserDaoImpl implements UserDao{
 		return list;
 	}
 	
-	//确认成为工作室成员
+	
+//	查看所有未审核、通过的、不通过的报名者
 	
 	@Override
 	
-	public int addFullMember(NewMember newMember){
-		int flag=0;
-		String sql="INSERT INTO user (username,password,email,gender,identity,phoneNum) VALUES(?,?,?,?,?,?)";
-		Object[] params={newMember.getUsername(),"123456",newMember.getEmail(),newMember.getGender(),"工作室成员",newMember.getPhoneNum()};
+	public List<NewMember> queryNewMemberSpecial(String special) {
+		List<NewMember> list=new ArrayList<>();
+		String sql="select * from newMemberApplication where state=? ";
 		try {
-			flag=runner.update(DBUtils.getConnection(),sql,params);
+			list=runner.query(DBUtils.getConnection(),sql, new BeanListHandler<NewMember>(NewMember.class),special);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	//审核报名表
+	@Override
+	
+	public int checkNewMember(String check, String studentId){
+		String sql="update newMemberApplication set state=? where studentId=?";
+		int flag=0;
+		try {
+			flag=runner.update(DBUtils.getConnection(),sql,check,studentId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
+	
+	
+	
+	
 	@Override
 	//修改
 	
-	public int findIdByUsername(String username){
-		String sql="select id from user where username=?";
+	public int findIdByUsername(String studentId){
+		String sql="select id from user where studentId=?";
 		Connection conn=DBUtils.getConnection();
 		int id=0;
 		
 		try {
-			List list=runner.query(conn,sql,new BeanListHandler<User>(User.class),username);
+			List list=runner.query(conn,sql,new BeanListHandler<User>(User.class),studentId);
 			for(Object x:list){
 				id= (int) x;
 			}
@@ -102,9 +120,11 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int update(User user) throws SQLException {
 		int flag=0;
-		String sql="UPDATE user set username=?,password=?,email=?,gender=?,identity=?,phoneNum=?,nation=?,signature=?,studentId WHERE id=?";
+		String sql="UPDATE user set studentId=?,username=?,password=?,birth=?,email=?,gender=?,phoneNum=?,nation=?,signature=?,picture=?,myQQ=?,major=?,academy=?,grade=? WHERE id=?";
 		//参数最好按照？顺序
-		Object[] params={user.getUsername(),user.getPassword(),user.getEmail(),user.getGender(),user.getIdentity(),user.getPhoneNum(),user.getNation(),user.getSignature(),user.getStudentId(),user.getId()};
+		Object[] params={user.getStudentId(),user.getUsername(),user.getPassword(),user.getBirth(),
+				user.getEmail(),user.getGender(),user.getPhoneNum(),user.getNation(), user.getSignature(),
+				user.getPicture(),user.getMyQQ(),user.getMajor(),user.getAcademy(),user.getGrade(),user.getId()};
 		flag=runner.update(DBUtils.getConnection(),sql,params);
 		return flag;
 	}
@@ -112,7 +132,7 @@ public class UserDaoImpl implements UserDao{
 	
 	public List<User> findByUsername(User user){
 		Connection conn=DBUtils.getConnection();
-		String sql="select username,email,gender,identity,phoneNum,nation,signature,studentId from user where username=?";
+		String sql="select studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade from user where username=?";
 		List<User> list =new ArrayList<>();
 		try {
 			list= runner.query(conn,sql,new BeanListHandler<User>(User.class),user.getUsername());
@@ -135,8 +155,10 @@ public class UserDaoImpl implements UserDao{
 		int line;
 		Connection conn=DBUtils.getConnection();
 		System.out.println(conn);
-		String sql="INSERT INTO user (username,password,email,gender,identity,phoneNum,nation,signature,studentId) VALUES(?,?,?,?,?,?,?,?,?)";
-		Object[] param={user.getUsername(),user.getPassword(),user.getEmail(),user.getGender(),user.getIdentity(),user.getPhoneNum(),user.getNation(),user.getSignature(),user.getStudentId()};
+		String sql="INSERT INTO user (studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Object[] param={user.getStudentId(),user.getUsername(),user.getPassword(),user.getBirth(),
+				user.getEmail(),user.getGender(),user.getPhoneNum(),user.getNation(), user.getSignature(),
+				user.getPicture(),user.getMyQQ(),user.getMajor(),user.getAcademy(),user.getGrade()};
 		line=runner.update(conn,sql,param);
 		DBUtils.closeConnection(null,null,conn);
 		return line;
@@ -162,7 +184,7 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public List<User> queryAll() throws SQLException {
-		String sql = "select id,username,password,email,gender,identity,phoneNum,nation,signature,studentId from user";
+		String sql = "select studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade from user";
 		List<User> users = runner.query(DBUtils.getConnection(), sql, new BeanListHandler<User>(User.class));
 		return users;
 		
