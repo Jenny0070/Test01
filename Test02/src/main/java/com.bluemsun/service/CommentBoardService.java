@@ -54,4 +54,21 @@ public class CommentBoardService {
 		}
 		return list;
 	}
+	
+	//审核
+	
+	public int checkCommentBoard(String check,CommentBoard commentBoard){
+		int id=0;
+		id=commentBoardDao.findId(commentBoard);
+		int flag=commentBoardDao.checkCommentBoard(check,id);
+		return flag;
+	}
+	
+	//只能展示审核通过的
+	
+	public List<CommentBoard> queryCheck(){
+		List<CommentBoard> commentBoards=new ArrayList<>();
+		commentBoards=commentBoardDao.queryCheck();
+		return commentBoards;
+	}
 }

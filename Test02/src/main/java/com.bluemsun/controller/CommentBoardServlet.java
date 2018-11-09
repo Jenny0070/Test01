@@ -42,15 +42,26 @@ public class CommentBoardServlet extends HttpServlet {
 			case "queryMessage":
 				queryMessageServlet(req,resp);
 				break;
+			case "checkCommentBoard":
+				checkCommentBoard(req,resp);
+				break;
+			case "queryCheck":
+				queryCheck(req,resp);
+				break;
+			default:	break;
 		}
 	}
+	
+	
+	
 	
 	private void addMessageServlet(HttpServletRequest req, HttpServletResponse resp) {
 		CommentBoard commentBoard=new CommentBoard();
 		commentBoard.setContent(req.getParameter("content"));
 		commentBoard.setKeyWord(req.getParameter("keyWord"));
-		commentBoard.setTarget(req.getParameter("target"));
-		commentBoard.setUsername(req.getParameter(""));
+		commentBoard.setUsername(req.getParameter("title"));
+		commentBoard.setUsername(req.getParameter("username"));
+		commentBoard.setDate(req.getParameter("date"));
 		
 		CommentBoardService commentBoardService=new CommentBoardService();
 		int id=commentBoardService.findId(commentBoard);
@@ -75,10 +86,13 @@ public class CommentBoardServlet extends HttpServlet {
 	
 	private void deleteMessageServlet(HttpServletRequest req, HttpServletResponse resp) {
 		CommentBoard commentBoard=new CommentBoard();
+		
 		commentBoard.setContent(req.getParameter("content"));
 		commentBoard.setKeyWord(req.getParameter("keyWord"));
-		commentBoard.setTarget(req.getParameter("target"));
+		commentBoard.setTarget(req.getParameter("title"));
 		commentBoard.setUsername(req.getParameter("username"));
+		commentBoard.setDate(req.getParameter("date"));
+		
 		
 		CommentBoardService commentBoardService=new CommentBoardService();
 		int id=commentBoardService.findId(commentBoard);
@@ -105,8 +119,9 @@ public class CommentBoardServlet extends HttpServlet {
 		CommentBoard commentBoard=new CommentBoard();
 		commentBoard.setContent(req.getParameter("content"));
 		commentBoard.setKeyWord(req.getParameter("keyWord"));
-		commentBoard.setTarget(req.getParameter("target"));
+		commentBoard.setTarget(req.getParameter("title"));
 		commentBoard.setUsername(req.getParameter("username"));
+		commentBoard.setDate(req.getParameter("date"));
 		
 		CommentBoardService commentBoardService=new CommentBoardService();
 		int id=commentBoardService.findId(commentBoard);
@@ -142,4 +157,52 @@ public class CommentBoardServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	//审核
+	
+	private void checkCommentBoard(HttpServletRequest req, HttpServletResponse resp) {
+		CommentBoard commentBoard=new CommentBoard();
+		commentBoard.setUsername(req.getParameter("username"));
+		commentBoard.setTitle(req.getParameter("title"));
+		String check=req.getParameter("check");
+		
+		CommentBoardService commentBoardService=new CommentBoardService();
+		int flag=commentBoardService.checkCommentBoard(check,commentBoard);
+		JSONObject jsonObject=new JSONObject();
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		if (flag>0){
+			jsonObject.put("flag","true");
+		}
+		else{
+			jsonObject.put("flag","false");
+		}
+		try {
+			resp.getWriter().write(String.valueOf(jsonObject));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	//只能展示审核通过的
+	
+	private void queryCheck(HttpServletRequest req, HttpServletResponse resp) {
+		List<CommentBoard> commentBoards=new ArrayList<>();
+		CommentBoardService commentBoardService=new CommentBoardService();
+		commentBoards=commentBoardService.queryCheck();
+		JSONArray jsonArray=JSONArray.fromObject(commentBoards);
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		try {
+			resp.getWriter().write(String.valueOf(jsonArray));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

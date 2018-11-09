@@ -11,6 +11,15 @@ public class CommentBoard {
 	private int like;
 	private int hits;
 	private String date;
+	private String state;
+	
+	public String getState() {
+		return state;
+	}
+	
+	public void setState(String state) {
+		this.state = state;
+	}
 	
 	public int getId() {
 		return id;

@@ -17,7 +17,7 @@ public class User {
 	private String myQQ;
 	private String major;
 	private String academy;
-	private int grade;
+	private String grade;
 	private String state;
 	private String identity;
 	
@@ -146,11 +146,11 @@ public class User {
 		this.academy = academy;
 	}
 	
-	public int getGrade() {
+	public String getGrade() {
 		return grade;
 	}
 	
-	public void setGrade(int grade) {
+	public void setGrade(String grade) {
 		this.grade = grade;
 	}
 	

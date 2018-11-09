@@ -313,7 +313,7 @@ public class MainServlet extends HttpServlet {
 		user.setAcademy(req.getParameter("academy"));
 		user.setMyQQ(req.getParameter("myQQ"));
 		user.setPicture(req.getParameter("picture"));
-		user.setGrade(Integer.parseInt(req.getParameter("grade")));
+		user.setGrade(req.getParameter("grade"));
 		user.setId(id);
 		
 		flag=userService.updateById(user);
@@ -433,7 +433,7 @@ public class MainServlet extends HttpServlet {
 		user.setAcademy(req.getParameter("academy"));
 		user.setMyQQ(req.getParameter("myQQ"));
 		user.setPicture(req.getParameter("picture"));
-		user.setGrade(Integer.parseInt(req.getParameter("grade")));
+		user.setGrade(req.getParameter("grade"));
 		UserService userService=new UserService();
 		int flag=userService.addUser(user);
 		if (flag>0){

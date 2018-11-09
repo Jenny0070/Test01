@@ -13,6 +13,7 @@ public class Display {
 	private String date ;
 	private int like;
 	
+	
 	public int getId() {
 		return id;
 	}

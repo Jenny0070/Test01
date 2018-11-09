@@ -49,10 +49,15 @@ public class DisplayServlet extends HttpServlet {
 	}
 	private void addWorksServlet(HttpServletRequest req, HttpServletResponse resp) {
 		Display display=new Display();
+		display.setIssuer(req.getParameter("issuer"));
 		display.setUsername(req.getParameter("username"));
 		display.setDescription(req.getParameter("description"));
 		display.setPictures(req.getParameter("pictures"));
 		display.setTitle(req.getParameter("title"));
+		display.setKeyWord(req.getParameter("keyWord"));;
+		display.setHits(Integer.parseInt(req.getParameter("hits")));
+		display.setDate(req.getParameter("date"));
+		display.setLike(Integer.parseInt(req.getParameter("like")));
 		
 		DisplayService displayService=new DisplayService();
 		
@@ -95,10 +100,15 @@ public class DisplayServlet extends HttpServlet {
 	
 	private void updateWorksServlet(HttpServletRequest req, HttpServletResponse resp) {
 		Display display=new Display();
+		display.setIssuer(req.getParameter("issuer"));
 		display.setUsername(req.getParameter("username"));
 		display.setDescription(req.getParameter("description"));
 		display.setPictures(req.getParameter("pictures"));
 		display.setTitle(req.getParameter("title"));
+		display.setKeyWord(req.getParameter("keyWord"));;
+		display.setHits(Integer.parseInt(req.getParameter("hits")));
+		display.setDate(req.getParameter("date"));
+		display.setLike(Integer.parseInt(req.getParameter("like")));
 		
 		DisplayService displayService=new DisplayService();
 		display.setId(displayService.findIdByTitle(req.getParameter("title")));

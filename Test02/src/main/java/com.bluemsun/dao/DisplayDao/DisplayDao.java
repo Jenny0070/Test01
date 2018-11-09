@@ -22,4 +22,13 @@ public interface DisplayDao  {
 	List<Display> findById(Display display) throws SQLException;
 	
 	List<Display> queryAll() throws SQLException;
+	
+	
+	int selectHits(String username, String title);
+	
+	int selectLike(String username, String title);
+	
+	int updateHits(Display display);
+	
+	int updateLike(Display display);
 }

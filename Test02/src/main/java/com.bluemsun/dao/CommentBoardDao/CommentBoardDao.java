@@ -19,4 +19,10 @@ public interface CommentBoardDao {
 	List<CommentBoard> findById(CommentBoard commentBoard) throws SQLException;
 	
 	List<CommentBoard> queryAll() throws SQLException;
+	
+	//只能展示已经通过审核的
+	List<CommentBoard> queryCheck();
+	
+	//审核
+	int checkCommentBoard(String check, int id);
 }

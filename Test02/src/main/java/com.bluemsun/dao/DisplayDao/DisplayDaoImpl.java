@@ -11,9 +11,8 @@ import java.util.List;
 
 public class DisplayDaoImpl implements DisplayDao {
 	private QueryRunner runner=new QueryRunner();
-	/*
-	增加
-	 */
+	
+	//找id
 	
 	@Override
 	public List<Display> findByTitleAndUsername(Display display){
@@ -29,12 +28,16 @@ public class DisplayDaoImpl implements DisplayDao {
 		return list;
 	}
 	
+	//增加
+	
 	@Override
 	public int add(Display display) throws SQLException {
 		int line;
 		Connection conn= DBUtils.getConnection();
-		String sql="INSERT INTO user (username=?,title=?,pictures=?,description=?) VALUES(?,?,?,?)";
-		Object[] param={display.getUsername(),display.getTitle(),display.getPictures(),display.getDescription()};
+		String sql="INSERT INTO user (issuer,username,title,pictures,description,keyWord,date) VALUES(?,?,?,?,?,?.?)";
+		
+		Object[] param={display.getIssuer(),display.getUsername(),display.getTitle(),display.getPictures(),
+				display.getDescription(),display.getKeyWord(),display.getDate()};
 		line=runner.update(conn,sql,param);
 		DBUtils.closeConnection(null,null,conn);
 		return line;
@@ -70,9 +73,11 @@ public class DisplayDaoImpl implements DisplayDao {
 	@Override
 	public int update(Display display) throws SQLException {
 		int flag=0;
-		String sql="UPDATE display set username=?,title=?,pictures=?,description=? WHERE id=?";
+		String sql="UPDATE display set issuer=?,username=?,title=?,pictures=?,description=?,keyWord=?,date=?WHERE id=?";
 		//参数最好按照？顺序
-		Object[] params={display.getUsername(),display.getTitle(),display.getPictures(),display.getDescription(),display.getId()};
+		Object[] params={display.getIssuer(),display.getUsername(),display.getTitle(),display.getPictures(),
+				display.getDescription(),display.getKeyWord(),display.getDate(),display.getId(),
+				display.getLike(),display.getHits()};
 		flag=runner.update(DBUtils.getConnection(),sql,params);
 		return flag;
 	}
@@ -90,10 +95,76 @@ public class DisplayDaoImpl implements DisplayDao {
 	
 	@Override
 	public List<Display> queryAll() throws SQLException {
-		String sql = "select username,title,pictures,description from display";
+		String sql = "select issuer,username,title,pictures,description,keyWord,date from display";
 		List<Display> displays = runner.query(DBUtils.getConnection(), sql, new BeanListHandler<Display>(Display.class));
 		return displays;
 		
+	}
+	
+	//查看点击量
+	
+	@Override
+	public int selectHits(String username, String title){
+		int hits=0;
+		List<Display> displays=new ArrayList<>();
+		String sql="select hits from display where username=?and title=?";
+		try {
+			 displays=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<Display>(Display.class),username,title);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for (Display display:displays){
+			hits=display.getHits();
+		}
+		return hits;
+	}
+	
+	//更新点击量
+	
+	@Override
+	public int updateHits(Display display){
+		int flag=0;
+		String sql="update display set hits =? where username=? and title=?";
+		Object[] params={display.getHits(),display.getUsername(),display.getTitle()};
+		try {
+			flag=runner.update(DBUtils.getConnection(),sql,params);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	//查看点赞数
+	
+	@Override
+	public int selectLike(String username, String title){
+		int like=0;
+		List<Display> displays=new ArrayList<>();
+		String sql="select like from display where username=?and title=?";
+		try {
+			displays=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<Display>(Display.class),username,title);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for (Display display:displays){
+			like=display.getHits();
+		}
+		return like;
+	}
+	
+	//更新点击量
+	
+	@Override
+	public int updateLike(Display display){
+		int flag=0;
+		String sql="update display set like =? where username=? and title=?";
+		Object[] params={display.getLike(),display.getUsername(),display.getTitle()};
+		try {
+			flag=runner.update(DBUtils.getConnection(),sql,params);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }
 
