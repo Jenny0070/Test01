@@ -64,8 +64,13 @@ public interface UserDao{
 	// 查询有几条记录
 	
 	
+	int checkMember(String check, User user);
 	
-	 long personCount() throws SQLException;
+	int updateIdentity(String identity, String studentId);
+	
+	List<User> queryMemberSpecial(String special);
+	
+	long personCount() throws SQLException;
 	
 	
 	

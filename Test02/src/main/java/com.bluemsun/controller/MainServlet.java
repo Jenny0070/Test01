@@ -80,7 +80,15 @@ public class MainServlet extends HttpServlet {
 			case  "checkNewMember":
 				checkNewMember(req,resp);
 				break;
-			
+			case "checkMember":
+				checkMember(req,resp);
+				break;
+			case "updateIdentity":
+				updateIdentity(req,resp);
+				break;
+			case "queryMemberSpecial":
+				queryMemberSpecial(req,resp);
+				break;
 			
 			default:
 				resp.getWriter().write("无方法正在执行");
@@ -89,6 +97,7 @@ public class MainServlet extends HttpServlet {
 		
 	}
 	
+
 	
 	
 	//申请表的开关
@@ -476,8 +485,82 @@ public class MainServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		
-	
 	}
+	//	条件查看
+	
+	private void queryMemberSpecial(HttpServletRequest req, HttpServletResponse resp) {
+		String special=req.getParameter("special");
+		UserService userService=new UserService();
+		List<User> userList=new ArrayList<>();
+		userList=userService.queryMemberSpecial(special);
+		
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		
+		JSONArray jsonArray=JSONArray.fromObject(userList);
+		try {
+			resp.getWriter().write(String.valueOf(jsonArray));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void updateIdentity(HttpServletRequest req, HttpServletResponse resp) {
+		String identity=req.getParameter("identity");
+		String studentId=req.getParameter("studentId");
+		UserService userService=new UserService();
+		int flag=userService.updateIdentity(identity,studentId);
+		
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		JSONObject jsonObject=new JSONObject();
+		
+		if (flag>0){
+			jsonObject.put("flag","true");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			jsonObject.put("flag","false");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void checkMember(HttpServletRequest req, HttpServletResponse resp) {
+		User user=new User();
+		user.setStudentId(req.getParameter("studentId"));
+		user.setIdentity(req.getParameter("identity"));
+		String check=req.getParameter("check");
+		
+		UserService userService=new UserService();
+		int flag=userService.checkMember(check,user);
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		JSONObject jsonObject=new JSONObject();
+		
+		if (flag>0){
+			jsonObject.put("flag","true");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			jsonObject.put("flag","false");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }

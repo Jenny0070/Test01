@@ -167,4 +167,31 @@ public class UserService {
 		}
 		return state;
 	}
+	
+	
+	//	管理员权限_审核
+	
+	public int checkMember(String check, User user){
+		UserDao userDao=new UserDaoImpl();
+		int flag=0;
+		flag=userDao.checkMember(check,user);
+		return flag;
+	}
+	//	改变身份
+	public int updateIdentity(String identity,String studentId){
+		UserDao userDao=new UserDaoImpl();
+		int flag=0;
+		flag=userDao.updateIdentity(identity,studentId);
+		return flag;
+	}
+	
+	//条件查看
+	
+	public List<User> queryMemberSpecial(String special) {
+		UserDao userDao=new UserDaoImpl();
+		List<User> userList=new ArrayList<>();
+		userList=userDao.queryMemberSpecial(special);
+		return userList;
+	}
 }
+

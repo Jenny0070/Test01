@@ -96,12 +96,94 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
 	
-	
-	
+	//报名表状态更改
 	
 	@Override
-	//修改
+	public int updateApplicationState(String state){
+		String sql="update applicationState set isOn=?";
+		int flag= 0;
+		try {
+			flag = runner.update(DBUtils.getConnection(),sql,state);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
+		
+	}
+	//	报名表状态查看(未测试
 	
+	@Override
+	public List<NewMember> queryApplicationState(){
+		String sql="select isOn from applicationState";
+		List<NewMember> list=new ArrayList();
+		try {
+			list= runner.query(DBUtils.getConnection(),sql,new BeanListHandler<NewMember>(NewMember.class));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	
+	//所有工作室成员均有的权限——登录、注册、注销自己用户、查看并修改自身信息
+	
+	
+	//注册判断
+	
+	public List<User> findByUsername(User user){
+		Connection conn=DBUtils.getConnection();
+		String sql="select studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade from tranee where username=?";
+		List<User> list =new ArrayList<>();
+		try {
+			list= runner.query(conn,sql,new BeanListHandler<User>(User.class),user.getUsername());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	//	注册
+
+	@Override
+	public int add(User user) throws SQLException {
+		int line;
+		Connection conn=DBUtils.getConnection();
+		System.out.println(conn);
+		String sql="INSERT INTO user (studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade,identity) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Object[] param={user.getStudentId(),user.getUsername(),user.getPassword(),user.getBirth(),
+				user.getEmail(),user.getGender(),user.getPhoneNum(),user.getNation(), user.getSignature(),
+				user.getPicture(),user.getMyQQ(),user.getMajor(),user.getAcademy(),user.getGrade(),"见习工作室成员"};
+		line=runner.update(conn,sql,param);
+		DBUtils.closeConnection(null,null,conn);
+		return line;
+	}
+	
+	//登录实现
+	
+	@Override
+	public List<User> findById(User user) throws SQLException {
+		String sql = "select * from user where username=? and password=?";
+		List list= runner.query(DBUtils.getConnection(), sql,new BeanListHandler<User>(User.class),user.getUsername(),user.getPassword());
+		return list;
+		
+	}
+	
+	//删除
+	
+	@Override
+	public int delete(int id) throws SQLException {
+		int flag=0;
+		String sql = "delete from user where id=?";
+		flag=runner.update(DBUtils.getConnection(), sql, id);
+		return  flag;
+		
+	}
+	
+	//	修改
+	
+	@Override
 	public int findIdByUsername(String studentId){
 		String sql="select id from user where studentId=?";
 		Connection conn=DBUtils.getConnection();
@@ -127,60 +209,57 @@ public class UserDaoImpl implements UserDao{
 				user.getPicture(),user.getMyQQ(),user.getMajor(),user.getAcademy(),user.getGrade(),user.getId()};
 		flag=runner.update(DBUtils.getConnection(),sql,params);
 		return flag;
-	}
-	//注册判断
+	}//自己的身份是不可以修改的
 	
-	public List<User> findByUsername(User user){
-		Connection conn=DBUtils.getConnection();
-		String sql="select studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade from user where username=?";
-		List<User> list =new ArrayList<>();
+	
+	
+	//	管理员权限
+	
+	
+	//对注册的新成员的审核_审核状态的改变+身份由见习->正式成员
+	
+	@Override
+	public int checkMember(String check, User user){
+		String sql="update user set state=?,identity=? where studentId=?";
+		int flag=0;
 		try {
-			list= runner.query(conn,sql,new BeanListHandler<User>(User.class),user.getUsername());
+			Object[] params={user.getStudentId(),user.getIdentity()};
+			flag=runner.update(DBUtils.getConnection(),sql,params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return list;
-		
-		
+		return flag;
 	}
-	/*
-	增加
-	 */
 	
-	
+	//	超级管理员可以调整工作室成员的身份
 	
 	@Override
-	public int add(User user) throws SQLException {
-		int line;
-		Connection conn=DBUtils.getConnection();
-		System.out.println(conn);
-		String sql="INSERT INTO user (studentId,username,password,birth,email,gender,phoneNum,nation,signature,picture,myQQ,major,academy,grade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		Object[] param={user.getStudentId(),user.getUsername(),user.getPassword(),user.getBirth(),
-				user.getEmail(),user.getGender(),user.getPhoneNum(),user.getNation(), user.getSignature(),
-				user.getPicture(),user.getMyQQ(),user.getMajor(),user.getAcademy(),user.getGrade()};
-		line=runner.update(conn,sql,param);
-		DBUtils.closeConnection(null,null,conn);
-		return line;
-	}
-	//删除
-	@Override
-	public int delete(int id) throws SQLException {
+	public int updateIdentity(String identity,String studentId){
+		String sql="update user set identity=? where studentId=?";
 		int flag=0;
-		String sql = "delete from user where id=?";
-		flag=runner.update(DBUtils.getConnection(), sql, id);
-		return  flag;
-		
+		try {
+			flag=runner.update(DBUtils.getConnection(),sql,identity,studentId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
-	//登录实现
+	
+	//条件查看
+	
 	@Override
-	public List<User> findById(User user) throws SQLException {
-		String sql = "select * from user where username=? and password=?";
-		List list= runner.query(DBUtils.getConnection(), sql,new BeanListHandler<User>(User.class),user.getUsername(),user.getPassword());
+	public List<User> queryMemberSpecial(String special) {
+		List<User> list=new ArrayList<>();
+		String sql="select * from user where state=? ";
+		try {
+			list=runner.query(DBUtils.getConnection(),sql, new BeanListHandler<User>(User.class),special);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
-		
 	}
-	//查找全部
+	
+	//查找成员
 	
 	@Override
 	public List<User> queryAll() throws SQLException {
@@ -203,32 +282,5 @@ public class UserDaoImpl implements UserDao{
 		}
 		return count;
 	}
-	//报名表状态更改
-	@Override
-	public int updateApplicationState(String state){
-		String sql="update applicationState set isOn=?";
-		int flag= 0;
-		try {
-			flag = runner.update(DBUtils.getConnection(),sql,state);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return flag;
-		
-	}
-//	报名表状态查看(未测试
-	
-	@Override
-	public List<NewMember> queryApplicationState(){
-		String sql="select isOn from applicationState";
-		List<NewMember> list=new ArrayList();
-		try {
-			list= runner.query(DBUtils.getConnection(),sql,new BeanListHandler<NewMember>(NewMember.class));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-	
+
 }
