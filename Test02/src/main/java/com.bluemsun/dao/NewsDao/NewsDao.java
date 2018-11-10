@@ -27,4 +27,10 @@ public interface NewsDao {
 	List<News> findByTitleOrKeyWord(News news) throws SQLException;
 	
 	List<News> queryAll() throws SQLException;
+	
+	List<News> queryOrderedByDate();
+	
+	int updateHits(News news);
+	
+	List<News> queryOrderedByHits();
 }

@@ -81,6 +81,7 @@ public class NewsService<T> {
 	public List<News> queryAll(){
 		List<News> list=new ArrayList<>();
 		NewsDao newsDao=new NewsDaoImpl();
+		
 		try {
 			list=newsDao.queryAll();
 		} catch (SQLException e) {
@@ -90,8 +91,51 @@ public class NewsService<T> {
 		return list;
 	}
 	
+	//	按时间排序进行全部查看
+	
+	public List<News> queryOrderedByDate(){
+		List<News> list=new ArrayList<>();
+		NewsDao newsDao=new NewsDaoImpl();
+		list=newsDao.queryOrderedByDate();
+		return list;
+	}
+	
+	//更新点击数
+	
+	public int updateHits(News news){
+		int flag=0;
+		NewsDao newsDao=new NewsDaoImpl();
+		int hits=0;
+		hits=((NewsDaoImpl) newsDao).selectHits(news);
+		hits=hits+1;
+		news.setHits(hits);
+		flag=newsDao.updateHits(news);
+		return flag;
+	}
+	
+	//查看一个
+	
+	public List<News> queryByTitle(News news)  {
+		List<News> newsList=new ArrayList<>();
+		NewsDao newsDao=new NewsDaoImpl();
+		try {
+			newsList=newsDao.findByTitleOrKeyWord(news);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return newsList;
+	}
+	
+	//按照热度排序进行查看
+	
+	public List<News> queryOrderedByHits(){
+		List<News> list=new ArrayList<>();
+		NewsDao newsDao=new NewsDaoImpl();
+		list=newsDao.queryOrderedByHits();
+		return list;
+	}
 	
 	
 	
 	
-}
+	}

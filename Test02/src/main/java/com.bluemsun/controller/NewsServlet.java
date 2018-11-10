@@ -43,11 +43,24 @@ public class NewsServlet extends HttpServlet {
 			case "updateNews":
 				updateNewsServlet(req,resp);
 				break;
+			case "queryOneNews":
+				queryOneNews(req,resp);
+				break;
 			case "queryNews":
 				queryNewsServlet(req,resp);
 				break;
+			case "queryOrderedByDate":
+				queryOrderedByDate(req,resp);
+				break;
+			case "queryOrderedByHits":
+				queryOrderedByHits(req,resp);
+				break;
+			default:
+				break;
 		}
 	}
+
+	
 	//新闻分页
 	
 	private void pagination(HttpServletRequest req, HttpServletResponse resp) {
@@ -72,7 +85,7 @@ public class NewsServlet extends HttpServlet {
 	private void addNews(HttpServletRequest req, HttpServletResponse resp) {
 		News news=new News();
 		news.setTitle(req.getParameter("title"));
-		news.setDate(req.getParameter("data"));
+		news.setDate(req.getParameter("date"));
 		news.setPromulgator(req.getParameter("promulgator"));
 		news.setType(req.getParameter("type"));
 		news.setContent(req.getParameter("content"));
@@ -111,7 +124,7 @@ public class NewsServlet extends HttpServlet {
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
 		if (flag>0){
-			jsonObject.put("flag","删除成功");
+			jsonObject.put("flag","true");
 			try {
 				resp.getWriter().write(String.valueOf(jsonObject));
 			} catch (IOException e) {
@@ -119,7 +132,7 @@ public class NewsServlet extends HttpServlet {
 			}
 		}
 		else{
-			jsonObject.put("flag","删除失败");
+			jsonObject.put("flag","false");
 			try {
 				resp.getWriter().write(String.valueOf(jsonObject));
 			} catch (IOException e) {
@@ -132,7 +145,7 @@ public class NewsServlet extends HttpServlet {
 	private void updateNewsServlet(HttpServletRequest req, HttpServletResponse resp) {
 		News news=new News();
 		news.setTitle(req.getParameter("title"));
-		news.setDate(req.getParameter("data"));
+		news.setDate(req.getParameter("date"));
 		news.setPromulgator(req.getParameter("promulgator"));
 		news.setType(req.getParameter("type"));
 		news.setContent(req.getParameter("content"));
@@ -146,7 +159,7 @@ public class NewsServlet extends HttpServlet {
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
 		if (flag>0){
-			jsonObject.put("flag","修改成功");
+			jsonObject.put("flag","true");
 			try {
 				resp.getWriter().write(String.valueOf(jsonObject));
 			} catch (IOException e) {
@@ -154,7 +167,7 @@ public class NewsServlet extends HttpServlet {
 			}
 		}
 		else{
-			jsonObject.put("flag","修改失败");
+			jsonObject.put("flag","false");
 			try {
 				resp.getWriter().write(String.valueOf(jsonObject));
 			} catch (IOException e) {
@@ -162,6 +175,39 @@ public class NewsServlet extends HttpServlet {
 			}
 		}
 	}
+	
+	
+	private void queryOneNews(HttpServletRequest req, HttpServletResponse resp) {
+		News news=new News();
+		news.setTitle(req.getParameter("title"));
+		NewsService newsService=new NewsService();
+		JSONObject jsonObject=new JSONObject();
+		int flag=newsService.updateHits(news);
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		List<News> list=newsService.queryByTitle(news);
+		JSONArray jsonArray=JSONArray.fromObject(list);
+		if (flag>0){
+			jsonObject.put("flag","true");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+				resp.getWriter().write(String.valueOf(jsonArray));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			jsonObject.put("flag","false");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+				resp.getWriter().write(String.valueOf(jsonArray));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 	
 	private void queryNewsServlet(HttpServletRequest req, HttpServletResponse resp) {
 		
@@ -171,6 +217,39 @@ public class NewsServlet extends HttpServlet {
 		list=newsService.queryAll();
 		JSONArray jsonArray=JSONArray.fromObject(list);
 		//json传数据的关键语句3
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		try {
+			resp.getWriter().write(String.valueOf(jsonArray));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	//按热度进行排序
+	
+	private void queryOrderedByHits(HttpServletRequest req, HttpServletResponse resp) {
+		List<News> list=new ArrayList<>();
+		NewsService newsService=new NewsService();
+		list=newsService.queryOrderedByHits();
+		JSONArray jsonArray=JSONArray.fromObject(list);
+		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
+		try {
+			resp.getWriter().write(String.valueOf(jsonArray));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	按时间进行排序
+	
+	private void queryOrderedByDate(HttpServletRequest req, HttpServletResponse resp) {
+		List<News> list=new ArrayList<>();
+		NewsService newsService=new NewsService();
+		list=newsService.queryOrderedByDate();
+		JSONArray jsonArray=JSONArray.fromObject(list);
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
 		try {

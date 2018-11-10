@@ -4,6 +4,7 @@ import com.bluemsun.dao.InformDao.InformDao;
 import com.bluemsun.dao.InformDao.InformDaoImpl;
 import com.bluemsun.entity.Inform;
 import com.bluemsun.entity.Page;
+import com.bluemsun.entity.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +19,41 @@ public class InformService {
 		List list=informDao.getInformDao(pageNum,pageSize);
 		page.setPageList(list);
 		return page;
+	}
+	
+	//限制部分用户可见，核查是否为可见用户
+	//一个inform的限制
+	
+	public int isPass(User user,String title){
+		int flag=0;
+		InformDao informDao=new InformDaoImpl();
+		String identity=informDao.checkIdentity(user);
+		String limit=informDao.checkLimit(title);
+		if(limit.equals(identity)){
+			flag=1;
+		}
+		return flag;
+	}
+	
+//	所有inform的限制
+	
+	public int isPassAll(User user){
+		int flag=0;
+		InformDao informDao=new InformDaoImpl();
+		String identity=informDao.checkIdentity(user);
+		String limit="正式成员";
+		if(limit.equals(identity)){
+			flag=1;
+		}
+		return flag;
+	}
+	//查看公共可看
+	
+	public List<Inform> seletCommon(){
+		List<Inform> list=new ArrayList<>();
+		InformDao informDao=new InformDaoImpl();
+		list=informDao.selectPart();
+		return list;
 	}
 	
 	//增加

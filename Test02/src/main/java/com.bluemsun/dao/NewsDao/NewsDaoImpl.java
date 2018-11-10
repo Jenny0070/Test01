@@ -50,7 +50,7 @@ public class NewsDaoImpl implements NewsDao {
 	public int add(News news) throws SQLException {
 		int line;
 		Connection conn=DBUtils.getConnection();
-		String sql="INSERT INTO news (title,keyWord,promulgator,content,type,data) VALUES(?,?,?,?,?,?)";
+		String sql="INSERT INTO news (title,keyWord,promulgator,content,type,date) VALUES(?,?,?,?,?,?)";
 		Object[] param={news.getTitle(),news.getKeyWord(),news.getPromulgator(),news.getContent(),news.getType(),news.getDate()};
 		line=runner.update(conn,sql,param);
 		DBUtils.closeConnection(null,null,conn);
@@ -87,7 +87,7 @@ public class NewsDaoImpl implements NewsDao {
 	@Override
 	public int update(News news) throws SQLException {
 		int flag=0;
-		String sql="UPDATE news set title=?,keyWord=?,promulgator=?content=?,type=?,data=? WHERE id=?";
+		String sql="UPDATE news set title=?,keyWord=?,promulgator=?content=?,type=?,date=? WHERE id=?";
 		//参数最好按照？顺序
 		Object[] params={news.getTitle(),news.getKeyWord(),news.getPromulgator(),news.getContent(),news.getContent(),news.getType(),news.getDate(),news.getId()};
 		flag=runner.update(DBUtils.getConnection(),sql,params);
@@ -98,8 +98,8 @@ public class NewsDaoImpl implements NewsDao {
 	
 	@Override
 	public List<News> findByTitleOrKeyWord(News news) throws SQLException {
-		String sql = "select * from news where title=? or keyWord=? ";
-		List list= runner.query(DBUtils.getConnection(), sql,new BeanListHandler<News>(News.class),news.getTitle(),news.getKeyWord());
+		String sql = "select title,keyWord,promulgator,content,type,date  from news where title=?  ";
+		List list= runner.query(DBUtils.getConnection(), sql,new BeanListHandler<News>(News.class),news.getTitle());
 		return list;
 		
 	}
@@ -107,9 +107,73 @@ public class NewsDaoImpl implements NewsDao {
 	
 	@Override
 	public List<News> queryAll() throws SQLException {
-		String sql = "select title,keyWord,promulgator,content,type,data from news";
+		String sql = "select title,keyWord,promulgator,content,type,date from news";
 		List<News> news = runner.query(DBUtils.getConnection(), sql, new BeanListHandler<News>(News.class));
 		return news;
 		
 	}
+	
+	
+	
+	//	按时间排序进行全部查看
+	
+	@Override
+	public List<News> queryOrderedByDate(){
+		String sql="SELECT title,keyWord,promulgator,content,type,date FROM news ORDER BY  str_to_date(date, '%Y-%m-%d')";
+		List<News> list=new ArrayList<>();
+		try {
+			list=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<News>(News.class));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	//按照热度排序进行查看
+	
+	@Override
+	public List<News> queryOrderedByHits(){
+		String sql="SELECT title,keyWord,promulgator,content,type,date FROM news ORDER BY hits";
+		List<News> list=new ArrayList<>();
+		try {
+			list=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<News>(News.class));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	//查看数据库点击数
+	
+	public int selectHits(News news){
+		String sql="select hits from news where title=?";
+		List<News> list=new ArrayList<>();
+		int hits=0;
+		try {
+			list=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<News>(News.class),news.getTitle());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for(News x:list){
+			hits=x.getHits();
+		}
+		return hits;
+	}
+	
+	//更新点击数
+	
+	@Override
+	public int updateHits(News news){
+		String sql="update news set hits=? where title=? ";
+		int flag=0;
+		try {
+			flag=runner.update(DBUtils.getConnection(),sql,news.getHits(),news.getHits());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }
+

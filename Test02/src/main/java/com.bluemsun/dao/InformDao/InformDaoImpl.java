@@ -2,6 +2,7 @@ package com.bluemsun.dao.InformDao;
 
 import com.bluemsun.dbutils.DBUtils;
 import com.bluemsun.entity.Inform;
+import com.bluemsun.entity.User;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -94,6 +95,52 @@ public class InformDaoImpl implements InformDao {
 	public List<Inform> queryAll() throws SQLException {
 		String sql = "select title,content,issuer,hits,date,limit,keyWord from inform";
 		List<Inform> informs = runner.query(DBUtils.getConnection(), sql, new BeanListHandler<Inform>(Inform.class));
+		return informs;
+	}
+	
+	@Override
+	public String checkIdentity(User user){
+		String identity=null;
+		String sql="select identity from user where username=? and password =?";
+		List<User> list=new ArrayList<>();
+		try {
+			list=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<User>(User.class),user.getUsername(),user.getPassword());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for(User x:list){
+			identity=x.getIdentity();
+		}
+		return identity;
+	}
+	
+	@Override
+	public String checkLimit(String title){
+		String limit=null;
+		String sql="select limit from inform where title =?";
+		List<Inform> list=new ArrayList<>();
+		try {
+			list=runner.query(DBUtils.getConnection(),sql,new BeanListHandler<Inform>(Inform.class),title);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for(Inform x:list){
+			limit=x.getLimit();
+		}
+		return limit;
+	}
+	
+	//提取可以公共访问的通知
+	
+	@Override
+	public List<Inform> selectPart(){
+		String sql = "select title,content,issuer,hits,date,limit,keyWord from inform where limit=?";
+		List<Inform> informs = null;
+		try {
+			informs = runner.query(DBUtils.getConnection(), sql, new BeanListHandler<Inform>(Inform.class),"见习工作室成员");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return informs;
 	}
 }

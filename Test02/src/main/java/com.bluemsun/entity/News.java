@@ -9,13 +9,13 @@ public class News {
 	private String content;
 	private String type;
 	private String date;
-	private String hits;
+	private int hits;
 	
-	public String getHits() {
+	public int getHits() {
 		return hits;
 	}
 	
-	public void setHits(String hits) {
+	public void setHits(int hits) {
 		this.hits = hits;
 	}
 	

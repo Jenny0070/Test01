@@ -1,6 +1,7 @@
 package com.bluemsun.dao.InformDao;
 
 import com.bluemsun.entity.Inform;
+import com.bluemsun.entity.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -26,4 +27,10 @@ public interface InformDao {
 	List<Inform> findByTitleOrKeyWord(Inform inform) throws SQLException;
 	
 	List<Inform> queryAll() throws SQLException;
+	
+	String checkIdentity(User user);
+	
+	String checkLimit(String title);
+	
+	List<Inform> selectPart();
 }

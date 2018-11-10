@@ -3,6 +3,7 @@ package com.bluemsun.controller;
 import com.bluemsun.entity.Inform;
 import com.bluemsun.entity.News;
 import com.bluemsun.entity.Page;
+import com.bluemsun.entity.User;
 import com.bluemsun.service.InformService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -46,8 +47,15 @@ public class InformServlet extends HttpServlet {
 			case "queryInform":
 				queryInform(req,resp);
 				break;
+			case "selectPart":
+				selectPart(req,resp);
+				break;
+			default:
+				break;
 		}
 	}
+	
+
 	
 	private void pagination(HttpServletRequest req, HttpServletResponse resp) {
 		int pageNum= Integer.parseInt(req.getParameter("pageNum"));
@@ -162,15 +170,49 @@ public class InformServlet extends HttpServlet {
 		}
 	}
 	
+	//权限控制
+	
 	private void queryInform(HttpServletRequest req, HttpServletResponse resp) {
-		
-		
-		
+		InformService informService=new InformService();
+		int flag=0;
+		User user=new User();
+		user.setUsername(req.getParameter("username"));
+		user.setPassword(req.getParameter("password"));
+		flag=informService.isPassAll(user);
+		if(flag>0) {
+			List<Inform> list = new ArrayList<>();
+			
+			list = informService.queryAll();
+			JSONArray jsonArray = JSONArray.fromObject(list);
+			//json传数据的关键语句3
+			resp.setContentType("application/json;charset=utf-8");
+			resp.setContentType("text/json;charset=utf-8");
+			try {
+				resp.getWriter().write(String.valueOf(jsonArray));
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			resp.setContentType("application/json;charset=utf-8");
+			resp.setContentType("text/json;charset=utf-8");
+			JSONObject jsonObject=new JSONObject();
+			jsonObject.put("false","没有权限");
+			try {
+				resp.getWriter().write(String.valueOf(jsonObject));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	//只展示公共部分
+	
+	private void selectPart(HttpServletRequest req, HttpServletResponse resp) {
 		List<Inform> list=new ArrayList<>();
 		InformService informService=new InformService();
-		list=informService.queryAll();
+		list=informService.seletCommon();
 		JSONArray jsonArray=JSONArray.fromObject(list);
-		//json传数据的关键语句3
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setContentType("text/json;charset=utf-8");
 		try {
@@ -180,6 +222,7 @@ public class InformServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 	
 }
 
